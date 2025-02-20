@@ -18,7 +18,7 @@ spec:
         operator: "Exists"
         effect: "NoSchedule"
       containers:
-      - name: playground
+      - name: rjobert-playground
         image: wil42/playground:v1
         ports:
         - containerPort: 80
