@@ -8,6 +8,7 @@ spec:
     app: rjobert-playground
   ports:
     - protocol: TCP
-      port: 80       # External port (what other services/users connect to)
-      targetPort: 8888  # The port your app inside the pod is running on
-  type: ClusterIP  # Change to "NodePort" or "LoadBalancer" if external access is needed
+      port: 8088       # Internal cluster port (internal to the cluster)
+      targetPort: 80  # target port of the pod (match container port from deployment)
+      nodePort: 8888  # External port -> vm host machine mapped
+  type: NodePort  #not ClusterIp as we want to expose the service to the outside world
